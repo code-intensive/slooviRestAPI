@@ -20,7 +20,7 @@ def get_flask_app(config: dict = None, *args, **kwargs) -> app.Flask:
     if config is not None:
         flask_app.config.update(config)
     
-    flask_app.update(kwargs)
+    flask_app.config.update(kwargs)
 
     # init mongo
     flask_app.config["MONGODB_HOST"] = MONGODB_URI
