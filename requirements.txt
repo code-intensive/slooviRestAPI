@@ -38,4 +38,4 @@ uuid==1.30
 Werkzeug==2.1.2
 WTForms==3.0.1
 zipp==3.8.0
-zope.interface==5.4.0
+zope.interface
