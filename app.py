@@ -7,7 +7,7 @@ from config.settings import *
 from api.routes import create_routes
 
 
-def get_flask_app(config: dict = None) -> app.Flask:
+def get_flask_app(config: dict = None, *args, **kwargs) -> app.Flask:
     """
     Initializes Flask app with given configuration.
     :param config: Optional configuration dictionary
@@ -19,6 +19,8 @@ def get_flask_app(config: dict = None) -> app.Flask:
     # configure app
     if config is not None:
         flask_app.config.update(config)
+    
+    flask_app.update(kwargs)
 
     # init mongo
     flask_app.config["MONGODB_HOST"] = MONGODB_URI
@@ -40,8 +42,8 @@ def get_flask_app(config: dict = None) -> app.Flask:
 
     return flask_app
 
-app = get_flask_app()
 
-if __name__ == '__main__':
+if __name__ == '__main__' and DEBUG:
     # Main entry point when run in stand-alone mode.
+    app = get_flask_app()
     app.run(debug=DEBUG)
