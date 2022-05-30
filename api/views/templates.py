@@ -4,8 +4,7 @@ from flask_jwt_extended import jwt_required, get_jwt_identity
 
 from models.template import Template
 
-from api.utils import parse_args
-from api.errors import error_to_response
+from utils.utils import parse_args
 
 
 class TemplatesListUpdateDeleteAPI(Resource):
@@ -70,7 +69,7 @@ class TemplatesListCreateAPI(Resource):
         new_template = Template(**parsed_args)
         new_template = new_template.save()
         if not new_template:
-            return error_to_response(new_template)
+            return abort(400, message='Template could not be created.')
         return make_response({'message': 'Template successfully created'}, 201)
 
     @jwt_required()
