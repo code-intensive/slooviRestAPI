@@ -1,7 +1,7 @@
 from flask import Response, make_response
 from flask_restful import Resource, abort
-
-from api.utils import generate_tokens, generate_user_UUID, parse_args
+from flask_jwt_extended import unset_jwt_cookies, jwt_required
+from utils.utils import generate_tokens, generate_user_UUID, parse_args
 
 from models.user import User
 
