@@ -1,0 +1,40 @@
+https://slovi-api.herokuapp.com (Hosted on heroku, this is the APIs base URL)
+
+------------------------------------------------------------------------------------------------------------------------
+
+Headers = {
+    Content-Type: application/json
+}
+
+POST Signup as a new User @ https://sloovi-api.herokuapp.com/register
+
+POST Login to authenticate and get authorization JSON web access token @ https://sloovi-api.herokuapp.com/login
+
+------------------------------------------------------------------------------------------------------------------------
+
+Authorization = {
+    Bearer Token: JSON Web Token (from login step)
+}
+
+GET Get all templates @ https://slovi-api.herokuapp.com/template
+
+GET Get a single template by template_id @ https://slovi-api.herokuapp.com/template_id
+
+PUT Update a single template by template_id @ https://slovi-api.herokuapp.com/template_id
+
+DELETE Delete a single template by template_id @ https://slovi-api.herokuapp.com/template_id
+
+------------------------------------------------------------------------------------------------------------------------
+
+GitHub repo
+
+https://github.com/code-intensive/sloovi-api.git
+
+------------------------------------------------------------------------------------------------------------------------
+
+I could share you the .env file if you desire to locally host it, since docker wasn't a requirement I did not utilize
+containers for this task.
+
+Ukavwe Israel Oghenetega (code-intensive)
+
+------------------------------------------------------------------------------------------------------------------------

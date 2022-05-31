@@ -3,7 +3,7 @@ from uuid import uuid4
 from flask_jwt_extended import create_access_token
 from flask_restful import reqparse
 
-from api.configparser import getTokenExpirationTime
+from config.configparser import getTokenExpirationTime
 from models.user import User
 
 
