@@ -30,12 +30,11 @@ pytz==2022.1
 pytz-deprecation-shim==0.1.0.post0
 PyYAML==6.0
 six==1.16.0
-SQLAlchemy==1.4.36
 toml==0.10.2
 tzdata==2022.1
-tzlocal==4.2
 uuid==1.30
 Werkzeug==2.1.2
 WTForms==3.0.1
 zipp==3.8.0
 zope.interface
+gunicorn==20.0.4

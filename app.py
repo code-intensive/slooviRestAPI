@@ -19,11 +19,12 @@ def get_flask_app(config: dict = None, *args, **kwargs) -> app.Flask:
     # configure app
     if config is not None:
         flask_app.config.update(config)
-    
+
     flask_app.config.update(kwargs)
 
     # init mongo
-    flask_app.config["MONGODB_HOST"] = MONGODB_URI
+    flask_app.config["MONGODB_SETTINGS"] = {
+        'db': 'sloovi_db', 'host': MONGODB_URI}
 
     # load config variables for jwt from settings.py
     flask_app.config['JWT_SECRET_KEY'] = JWT_SECRET_KEY
@@ -33,7 +34,7 @@ def get_flask_app(config: dict = None, *args, **kwargs) -> app.Flask:
 
     # init api and routes
     create_routes(Api(app=flask_app))
-    
+
     # init mongoengine
     MongoEngine(app=flask_app)
 

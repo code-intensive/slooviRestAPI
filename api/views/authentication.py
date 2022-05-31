@@ -13,8 +13,7 @@ class Register(Resource):
         """ Create a new user. """
         fields = ('email', 'password', 'first_name', 'last_name')
         args = parse_args(args_tuple=fields, required_fields=fields)
-        user = User(user_id=generate_user_UUID(), email=args['email'], password=args['password'],
-                    first_name=args['first_name'], last_name=args['last_name'])
+        user = User(user_id=generate_user_UUID(), **args)
         if user.email_is_unique():
             user = user.save()
             return {'message': 'User created successfully'}, 201
@@ -32,5 +31,5 @@ class Login(Resource):
         user = User.objects.filter(email=email).first()
 
         if not (user and user.verify_password(password=password)):
-            return abort(401, message='Invalid username or password')
+            return abort(401, message='Invalid login credentials')
         return make_response(generate_tokens(user), 200)

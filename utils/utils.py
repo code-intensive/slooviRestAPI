@@ -44,4 +44,4 @@ def generate_tokens(user: User) -> dict:
 
 def generate_user_UUID() -> str:
     """ Generates a universal unique identifier string representing the user's ID. """
-    return uuid4()
+    return uuid4().hex
