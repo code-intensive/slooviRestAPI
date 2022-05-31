@@ -27,6 +27,7 @@ def get_flask_app(config: dict = None, *args, **kwargs) -> app.Flask:
         'db': 'sloovi_db', 'host': MONGODB_URI}
 
     # load config variables for jwt from settings.py
+    flask_app.config['PROPAGATE_EXCEPTIONS'] = PROPAGATE_EXCEPTIONS
     flask_app.config['JWT_SECRET_KEY'] = JWT_SECRET_KEY
     flask_app.config['JWT_COOKIE_SECURE'] = JWT_COOKIE_SECURE
     flask_app.config['JWT_ACCESS_TOKEN_EXPIRES'] = JWT_ACCESS_TOKEN_EXPIRES
