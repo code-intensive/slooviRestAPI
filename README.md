@@ -1,4 +1,4 @@
-# slooviRestAPI
+# Template management system
 
 ### Flask RESTFul API
 
